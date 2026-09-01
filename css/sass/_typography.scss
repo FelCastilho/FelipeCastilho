@@ -1,0 +1,181 @@
+@use 'layout';
+@use 'colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@mixin typeface-1($size, $device: desktop) {
+  font-family: "Poppins", sans-serif;
+
+  @if $size ==h0 and $device ==desktop {
+    font-size: 64px;
+    line-height: 100%;
+  }
+
+  @else if $size ==h0 and $device ==mobile {
+    font-size: 36px;
+    line-height: 100%;
+  }
+
+  @else if $size ==h1 and $device ==desktop {
+    font-size: 36px;
+    line-height: 100%;
+  }
+
+  @else if $size ==h1 and $device ==mobile {
+    font-size: 32px;
+    line-height: 100%;
+  }
+
+  @else if $size ==h2 and $device ==desktop {
+    font-size: 32px;
+    line-height: 120%;
+  }
+
+  @else if $size ==h2 and $device ==mobile {
+    font-size: 28px;
+    line-height: 120%;
+  }
+
+  @else if $size ==h3 and $device ==desktop {
+    font-size: 24px;
+    line-height: 130%;
+  }
+
+  @else if $size ==h3 and $device ==mobile {
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  @else if $size ==h4 and $device ==desktop {
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  @else if $size ==h4 and $device ==mobile {
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  @else if $size ==h5 and $device ==desktop {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  @else if $size ==h5 and $device ==mobile {
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+}
+
+@mixin typeface-2($size: p2, $device: desktop) {
+  font-family: "Poppins", sans-serif;
+
+  @if $size ==p1 and $device ==desktop {
+    font-size: 24px;
+    line-height: 130%;
+  }
+
+  @else if $size ==p1 and $device ==mobile {
+    font-size: 18px;
+    line-height: 130%;
+  }
+
+  @else if $size ==p2 and $device ==desktop {
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  @else if $size ==p2 and $device ==mobile {
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  @else if $size ==p3 and $device ==desktop {
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  @else if $size ==p3 and $device ==mobile {
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
+
+h1 {
+  color: black;
+  @include typeface-1(h1, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-1(h1, mobile);
+  }
+}
+
+h2 {
+  color: black;
+  @include typeface-1(h2, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-1(h2, mobile);
+  }
+}
+
+h3 {
+  color: black;
+  @include typeface-1(h3, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-1(h3, mobile);
+  }
+}
+
+h4 {
+  color: black;
+  @include typeface-1(h4, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-1(h4, mobile);
+  }
+}
+
+h5 {
+  text-transform: uppercase;
+  letter-spacing: 28%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+
+  @include typeface-1(h5, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-1(h5, mobile);
+  }
+}
+
+p {
+  color: colors.$gray-4;
+  @include typeface-2(p2, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-2(p2, mobile);
+  }
+}
+
+.bold {
+  font-weight: bold;
+  color: colors.$black-light;
+}
+
+strong {
+  color: black;
+  @include typeface-2(p2, desktop);
+
+  @include layout.responsive(s) {
+    @include typeface-2(p2, mobile);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
